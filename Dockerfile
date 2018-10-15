@@ -6,5 +6,5 @@ WORKDIR /app
 # Build it:
 ENV SRC_DIR=/go/src/github.com/fudoit/golang-test/
 ADD . $SRC_DIR
-RUN   go build -o myapp; cp myapp /app/
+RUN  cd $SRC_DIR; go build -o myapp; cp myapp /app/
 ENTRYPOINT ["./myapp"]
