@@ -4,5 +4,7 @@ WORKDIR /app
 # Set an env var that matches your github repo name, replace treeder/dockergo here with your repo name
 # Add the source code:
 # Build it:
-RUN  mkdir /app; go build -o myapp; cp myapp /app/
+ENV SRC_DIR=/go/src/github.com/fudoit/golang-test/
+ADD . $SRC_DIR
+RUN   go build -o myapp; cp myapp /app/
 ENTRYPOINT ["./myapp"]
